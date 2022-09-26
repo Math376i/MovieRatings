@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRatings", "MovieRatings\MovieRatings.csproj", "{7F290638-1AE9-49D9-8AEB-07320C931B96}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatingTest", "RatingTest\RatingTest.csproj", "{7225775B-F1A0-4537-9E56-09E87137FA0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRatingExample", "MovieRatingExample\MovieRatingExample.csproj", "{5C3F7EA5-77FE-40C5-8422-BDA4EC33C155}"
@@ -12,10 +10,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7F290638-1AE9-49D9-8AEB-07320C931B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F290638-1AE9-49D9-8AEB-07320C931B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F290638-1AE9-49D9-8AEB-07320C931B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F290638-1AE9-49D9-8AEB-07320C931B96}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7225775B-F1A0-4537-9E56-09E87137FA0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7225775B-F1A0-4537-9E56-09E87137FA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7225775B-F1A0-4537-9E56-09E87137FA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
