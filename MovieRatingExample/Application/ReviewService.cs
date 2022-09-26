@@ -1,9 +1,24 @@
-﻿using MovieRatingExample.Core.Service;
+﻿using MovieRatingExample.Core.Model;
+using MovieRatingExample.Core.Repositories;
+using MovieRatingExample.Core.Service;
 
 namespace MovieRatingExample.Application;
 
 public class ReviewService : IReviewService
 {
+    private IReviewRepository Repository;
+
+    public ReviewService(IReviewRepository repository)
+    {
+        if (repository == null)
+        {
+            throw new AggregateException("You are missing the repository");
+        }
+
+        Repository = repository;
+    }
+    
+    
     public int GetNumberOffReviewsFromReviwer(int reviewer)
     {
         throw new NotImplementedException();
@@ -11,7 +26,14 @@ public class ReviewService : IReviewService
 
     public double GetAverageRateFromReviewer(int reviewer)
     {
-        throw new NotImplementedException();
+        int count = 0;
+        foreach (BEReview review in Repository.GetAll())
+        {
+            if (review.Reviewer == reviewer)
+                count++;
+        }
+
+        return count;
     }
 
     public int GetNumberOfRatesByReviewer(int reviewer, int rate)
