@@ -8,6 +8,5 @@ namespace MovieRatingExample.Core.Repositories;
 /// </summary>
 public interface IReviewRepository
 {
-    
     BEReview[] GetAll();
 }
