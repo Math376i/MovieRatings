@@ -6,8 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\RatingTest\RatingTest.csproj" />
-    </ItemGroup>
-
 </Project>

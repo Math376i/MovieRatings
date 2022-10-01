@@ -19,7 +19,7 @@ public class ReviewService : IReviewService
     }
     
     
-    public int GetNumberOffReviewsFromReviwer(int reviewer)
+    public int GetNumberOfReviewsFromReviwer(int reviewer)
     {
         throw new NotImplementedException();
     }

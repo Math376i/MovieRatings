@@ -9,7 +9,7 @@ public interface IReviewService
     /// <returns></returns>
     
     // 1. On input N, what are the number of reviews from reviewer N?
-    int GetNumberOffReviewsFromReviwer(int reviewer);
+    int GetNumberOfReviewsFromReviwer(int reviewer);
     
     // 2. On input N, what is the average rate that reviewer N had given?
     double GetAverageRateFromReviewer(int reviewer);
