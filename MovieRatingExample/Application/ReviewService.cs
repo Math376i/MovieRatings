@@ -7,6 +7,7 @@ namespace MovieRatingExample.Application;
 public class ReviewService : IReviewService
 {
     private IReviewRepository Repository;
+    List<double> grades;
 
     public ReviewService(IReviewRepository repository)
     {
@@ -18,13 +19,7 @@ public class ReviewService : IReviewService
         Repository = repository;
     }
     
-    
-    public int GetNumberOfReviewsFromReviwer(int reviewer)
-    {
-        throw new NotImplementedException();
-    }
-
-    public double GetAverageRateFromReviewer(int reviewer)
+    public int GetNumberOfReviewsFromReviewer(int reviewer)
     {
         int count = 0;
         foreach (BEReview review in Repository.GetAll())
@@ -32,13 +27,27 @@ public class ReviewService : IReviewService
             if (review.Reviewer == reviewer)
                 count++;
         }
-
         return count;
+    }
+    
+    public double GetAverageRateFromReviewer(int reviewer)
+    {
+        foreach (BEReview n in Repository.GetAll())
+        {
+            grades.Add(n.Grade);
+        }
+        return grades.Average() ;
     }
 
     public int GetNumberOfRatesByReviewer(int reviewer, int rate)
     {
-        throw new NotImplementedException();
+        int count = 0;
+        foreach (BEReview grade in Repository.GetAll())
+        {
+            if (grade.Reviewer == reviewer)
+                count++;
+        }
+        return count;    
     }
 
     public int GetNumberOfReviews(int movie)

@@ -57,11 +57,61 @@ public class UnitTest1
         IReviewService service = new ReviewService(mockRepository.Object);
 
         // Act
-        int result = service.GetNumberOfReviewsFromReviwer(reviewer);
+        int result = service.GetNumberOfReviewsFromReviewer(reviewer);
 
         // Assert
         Assert.Equal(expectedResult, result);
         mockRepository.Verify(r => r.GetAll(), Times.Once);
     }
+    
+    public void GetAverageRateFromReviewer(int reviewer, int expectedResult)
+    {
+        // Arrange
+        BEReview[] fakeRepo = new BEReview[]
+        {
+            new BEReview() { Reviewer = 1, Movie = 1, Grade = 3, ReviewDate = new DateTime() },
+            new BEReview() { Reviewer = 2, Movie = 1, Grade = 3, ReviewDate = new DateTime() },
+            new BEReview() { Reviewer = 1, Movie = 2, Grade = 3, ReviewDate = new DateTime() },
+        };
+        
+        Mock<IReviewRepository> mockRepository = new Mock<IReviewRepository>();
+        mockRepository.Setup(r => r.GetAll()).Returns(fakeRepo);
 
+        IReviewService service = new ReviewService(mockRepository.Object);
+        
+        // Act
+        double result = service.GetAverageRateFromReviewer(reviewer);
+        
+        // Assert
+        Assert.Equal(expectedResult, result);
+        mockRepository.Verify(r => r.GetAll(), Times.Once);
+    }
+    
+[Theory]
+    [InlineData(1, 2)]
+    [InlineData(2, 1)]
+    [InlineData(3, 0)]
+    public void GetNumberOfRatesByReviewer(int reviewer, int rate)
+    {
+        // Arrange
+        BEReview[] fakeRepo = new BEReview[]
+        {
+            new BEReview() { Reviewer = 1, Movie = 1, Grade = 3, ReviewDate = new DateTime() },
+            new BEReview() { Reviewer = 2, Movie = 1, Grade = 3, ReviewDate = new DateTime() },
+            new BEReview() { Reviewer = 1, Movie = 2, Grade = 3, ReviewDate = new DateTime() },
+        };
+        
+        Mock<IReviewRepository> mockRepository = new Mock<IReviewRepository>();
+        mockRepository.Setup(r => r.GetAll()).Returns(fakeRepo);
+
+        IReviewService service = new ReviewService(mockRepository.Object);
+
+        // Act
+        int result = service.GetNumberOfRatesByReviewer(reviewer, rate);
+        
+        // Assert
+        Assert.Equal(rate, result);
+        mockRepository.Verify(r => r.GetAll(), Times.Once);
+
+    }
 }
