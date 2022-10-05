@@ -7,7 +7,6 @@ namespace MovieRatingExample.Application;
 public class ReviewService : IReviewService
 {
     private IReviewRepository Repository;
-    List<double> grades;
 
     public ReviewService(IReviewRepository repository)
     {
@@ -32,42 +31,76 @@ public class ReviewService : IReviewService
     
     public double GetAverageRateFromReviewer(int reviewer)
     {
-        foreach (BEReview n in Repository.GetAll())
-        {
-            grades.Add(n.Grade);
-        }
-        return grades.Average() ;
+
+        var results = Repository.GetAll().Where(r => r.Reviewer == reviewer).Select(r => r.Grade);
+
+        return results.Average();
     }
 
     public int GetNumberOfRatesByReviewer(int reviewer, int rate)
     {
+        
+        var results = Repository.GetAll().Where(r => r.Reviewer == reviewer);
+
         int count = 0;
-        foreach (BEReview grade in Repository.GetAll())
+        foreach (BEReview n in results)
         {
-            if (grade.Reviewer == reviewer)
+            if (n.Grade == rate)
                 count++;
         }
-        return count;    
+        return count;
     }
 
     public int GetNumberOfReviews(int movie)
     {
-        throw new NotImplementedException();
+        var results = Repository.GetAll().Where(r => r.Movie == movie);
+
+        int count = 0;
+        foreach (BEReview n in results)
+        {
+            if (n.Movie == movie)
+                count++;
+        }
+
+        return count;
     }
 
     public double GetAverageRateOfMovie(int movie)
     {
-        throw new NotImplementedException();
+        var results = Repository.GetAll().Where(r => r.Movie == movie).Select(r => r.Grade);
+
+        return results.Average();
     }
 
     public int GetNumberOfRates(int movie, int rate)
     {
-        throw new NotImplementedException();
+        var results = Repository.GetAll().Where(r => r.Movie == movie);
+
+        int count = 0;
+        foreach (BEReview n in results)
+        {
+            if (n.Grade == rate)
+                count++;
+        }
+        return count;
     }
 
+    
     public List<int> GetMoviesWithHighestNumberOfTopRates()
     {
-        throw new NotImplementedException();
+        List<int> topRates = new List<int>();
+        
+
+        var results = Repository.GetAll().Where(r => r.Grade == 5);
+        
+        
+        var mostCommon = topRates.GroupBy(i => i).OrderByDescending()
+        foreach (BEReview n in results)
+        {
+            
+        }
+
+        return ;
     }
 
     public List<int> GetMostProductiveReviewers()
