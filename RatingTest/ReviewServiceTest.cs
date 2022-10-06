@@ -8,6 +8,8 @@ namespace RatingTest;
 
 public class UnitTest1
 {
+    // This class helps testing that all the methods in the program is working the way they should
+    
     [Fact]
     public void CreateReviewServiceWithRepository()
     {
@@ -22,6 +24,7 @@ public class UnitTest1
         Assert.NotNull(service);
         Assert.True(service is ReviewService);
     }
+    
     
     [Fact]
     public void CreateReviewServiceWithNoRepositoryExceptArgumentException()

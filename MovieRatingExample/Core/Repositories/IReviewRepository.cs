@@ -4,7 +4,7 @@ namespace MovieRatingExample.Core.Repositories;
 
 
 /// <summary>
-/// Interface implementere GetAll fra BEReview
+/// Interface implements GetAll from BEReview
 /// </summary>
 public interface IReviewRepository
 {

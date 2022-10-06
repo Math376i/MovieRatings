@@ -3,7 +3,7 @@
 public interface IReviewService
 {
     /// <summary>
-    /// Interfacet bliver brugt til at sætte opgaverne op på så man kan bruge metoderne
+    /// The inteterface is used to set op the assignments that should be fikset.
     /// </summary>
     /// <param name="reviewer"></param>
     /// <returns></returns>
