@@ -91,46 +91,131 @@ public class ReviewService : IReviewService
         }
         return count;
     }
-
+    
     // This method helps getting the movies with the highest number.
     public List<int> GetMoviesWithHighestNumberOfTopRates()
     {
-        List<int> topRates = new List<int>();
-        
+        List<BEReview> allBeReviews = Repository.GetAll().FindAll(b => b.Grade.Equals(5));
 
-        var results = Repository.GetAll().Where(r => r.Grade == 5);
-        
-        
-        var mostCommon = topRates.GroupBy(i => i).OrderByDescending()
-        foreach (BEReview n in results)
+        List<int> movieIdList = new List<int>();
+        foreach (var review in allBeReviews)
         {
-            
+            if (!movieIdList.Contains(review.Movie))
+            {
+                movieIdList.Add(review.Movie);
+            }
         }
 
-        return ;
+        int count = 0;
+        int highestMovie = 0;
+        List<int> topMovie = new List<int>();
+
+        foreach (var movie in movieIdList)
+        {
+            count = allBeReviews.FindAll(b => b.Movie.Equals(movie)).Count;
+
+            if (count > highestMovie)
+            {
+                highestMovie = count;
+                topMovie.Clear();
+                topMovie.Add(movie);
+            }
+            else if (count == highestMovie)
+            { topMovie.Add(movie); }
+        }
+
+        return topMovie;
     }
 
     // This method helps getting the most productive reviewers
     public List<int> GetMostProductiveReviewers()
     {
-        throw new NotImplementedException();
+        List<BEReview> allBeReviews = Repository.GetAll();
+
+        List<int> reviewerIdList = new List<int>();
+        foreach (var review in allBeReviews)
+        {
+            if (!reviewerIdList.Contains(review.Movie))
+            {
+                reviewerIdList.Add(review.Movie);
+            }
+        }
+
+        int count = 0;
+        int highestReviewer = 0;
+        List<int> topReviewer = new List<int>();
+
+        foreach (var reviewer in reviewerIdList)
+        {
+            count = allBeReviews.FindAll(r => r.Reviewer.Equals(reviewer)).Count;
+
+            if (count > highestReviewer)
+            {
+                highestReviewer = count;
+                topReviewer.Clear();
+                topReviewer.Add(reviewer);
+            }
+            else if (count == highestReviewer)
+            { topReviewer.Add(reviewer); }
+        }
+
+        return topReviewer;
     }
 
     // This method helps getting the top rated movies
+
     public List<int> GetTopRatedMovies(int amount)
     {
-        throw new NotImplementedException();
-    }
+        if (amount < 0) throw new ArgumentException("Amount can't be 0");
+        
+        var m = Repository.GetAll().Select(r => r.Movie).Distinct();
+        
+        Dictionary<int, double> movieWithAvgGrade = new Dictionary<int, double>();
+        foreach (var movie in m)
+        {
+            movieWithAvgGrade.Add(movie, GetAverageRateOfMovie(movie));
+        }
+        
+        List<int> movies = new List<int>();
+        for (int t = 0; t < amount; t++)
+        {
+            if (t >= m.Count())
+            { break; }
 
+            var maxValue = movieWithAvgGrade.Aggregate((r, v) => r.Value > v.Value ? r : v).Key;
+            movieWithAvgGrade.Remove(maxValue);
+            movies.Add(maxValue);
+        }
+        return movies;
+    }
+    
     // This method helps getting the top movie form the reviewer
     public List<int> GetTopMoviesByReviewer(int reviewer)
     {
-        throw new NotImplementedException();
+        if (reviewer < 0) throw new ArgumentException("Reviewer can't be 0");
+        var reviews = Repository.GetAll().Where(r => r.Reviewer == reviewer);
+        List<int> result = new List<int>();
+        for (int t = 5; t > 0; t--)
+        {
+            var underList = new List<BEReview>(reviews.Where(a => a.Grade == t));
+            underList.Sort((a,b) => a.ReviewDate.CompareTo(b.ReviewDate));
+            result.AddRange(underList.Select(r => r.Movie));
+        }
+        return result;
     }
 
     // This method helps getting the reviewers by the movie
     public List<int> GetReviewerByMovie(int movie)
     {
-        throw new NotImplementedException();
+        if (movie < 0) throw new ArgumentException("Reviewer can't be 0");
+        var reviews = Repository.GetAll().Where(r => r.Movie == movie);
+        List<int> result = new List<int>();
+        for (int t = 3; t > 0; t--)
+        {
+            var underList = new List<BEReview>(reviews.Where(a => a.Grade == t));
+            underList.Sort((a,b) => a.ReviewDate.CompareTo(b.ReviewDate));
+            result.AddRange(underList.Select(r => r.Reviewer));
+        }
+        return result;
     }
 }

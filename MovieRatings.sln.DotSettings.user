@@ -1,5 +1,21 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=900600f8_002Dee7c_002D41e3_002D9add_002D6237ec0f5acb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="UnitTest1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8307f88d_002D7aed_002D4f62_002Dbcc0_002Ddd12e045bf2e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetNumberOfReviewsFromReviewer" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetNumberOfReviewsFromReviewer&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetNumberOfRatesByReviewer&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetAverageRateFromReviewer&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetNumberOfReviews&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetAverageRateOfMovie&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetNumberOfRates&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetMoviesWithHighestNumberOfTopRates&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetMostProductiveReviewers&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetTopRatedMoviesTest1&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetTopMoviesByReviewer&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetTopRatedMoviesTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1.GetReviewerByMovie&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=900600f8_002Dee7c_002D41e3_002D9add_002D6237ec0f5acb/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="UnitTest1" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;xUnit::7225775B-F1A0-4537-9E56-09E87137FA0C::net6.0::RatingTest.UnitTest1&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
